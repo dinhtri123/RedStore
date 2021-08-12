@@ -1,24 +1,36 @@
 //   -------js for MenuToggle------------------
 
-
   
   var  MenuItems = document.getElementById('MenuItems');
 
-  MenuItems.style.maxHeight = "0px";
+  MenuItems.style.maxHeight = "0%";
 
   function menutoggle(){
 
-      if(MenuItems.style.maxHeight == "0px"){
+      if(MenuItems.style.maxHeight == "0%"){
 
-        MenuItems.style.maxHeight = "200px";
+        MenuItems.style.maxHeight = "100%";
       }
       else{
 
-        MenuItems.style.maxHeight = "0px";
+        MenuItems.style.maxHeight = "0%";
       }
 
   }
-//   ----------------------js for product-----------------
+  // function close_menu(){
+  //   document.getElementById('MenuItems_close').style.display = "none";
+  // }
+//   function close_menu(){
+//     if(MenuItems.style.maxWidth == "100%"){
+//       MenuItems.style.maxWidth = "0%";
+//     }
+//     else{
+//       MenuItems.style.maxWidth = "100%";
+//     }
+//   }
+// //   ----------------------js for product-----------------
+
+
 
     var ProductImg = document.getElementById("ProductImg")
     var SmallImg = document.getElementsByClassName("small-img")
@@ -39,4 +51,8 @@
     {
         ProductImg.src = SmallImg[3].src
     }
-    // -----------------js for toggle form--------------
+  
+
+    // ----scroll----
+    
+ 

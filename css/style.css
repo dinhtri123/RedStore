@@ -14,6 +14,7 @@ body{
 nav{
     flex: 1;
     text-align: right;
+    z-index: 999;
 }
 nav ul{
     display: inline-block;
@@ -29,11 +30,18 @@ a{
 p{
     color: #555;
 }
+
+#MenuItems li a:hover, #MenuItems li a:focus{
+    color:#ff523b;
+    transition: 0.5s ease;
+}
+
 .container{
     max-width:1300px;
     margin:auto;
     padding-left:25px;
     padding-right:25px;
+    z-index: -1;
 }
 .row{
     display:flex;
@@ -83,6 +91,13 @@ p{
 }
 .col-3 img{
     width:100%;
+    transition: transform 0.4s, opacity 0.4s;
+    transform: scale(1);
+}
+.col-3 img:hover{
+    opacity: 0.5;
+    transform: scale(1.04);
+
 }
 .small-container{
     max-width: 1080px;
@@ -326,6 +341,31 @@ input:focus{
     cursor: pointer;
 }
 
+.btn_more{
+    font-family: 'Poppins', sans-serif;
+    display:inline-block;
+    background-color:#ff523b;
+    color:#fff;
+    padding: 8px 30px;
+    margin:30px 0;
+    font-size: 16px;
+    border-radius:30px;
+    transition:background-color  0.5s;
+    outline:none;
+    border:none;
+    cursor: pointer;
+    position: relative;
+    left:50%;
+    transform: translateX(-50%);
+}
+.btn_more:hover{
+    background-color: #563434;
+    
+}
+
+
+
+
 /* ---------------cart item detail--------- */
 
 .cart-page{
@@ -388,13 +428,15 @@ th:last-child{
 .form-container{
     background:#fff;
     width:300px;
-    height:400px;
-    position: relative;
+    height: 400px;
+    position: relative; 
+    padding:20px 0px;
+    margin:auto;
     text-align:center;
-    padding:20px 0;
     box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
     overflow:  hidden;
 }
+
 .form-container span{
     font-weight: bold;
     padding:0px 10px;
@@ -404,6 +446,7 @@ th:last-child{
     display: inline-block;
 }
 .form-btn{
+    width:100%;
     display:inline-block;
 }
 .form-container form{
@@ -445,8 +488,249 @@ form a{
     background:#ff523b;
     height:3px;
     margin-top:8px;
-    transform: translateX(100px);
-    transition: transform 1s;
+    transform: translateX(150px);
+    transition: transform 0.6s;
+}
+
+/* -------------------UP--------------- */
+#btn_up{
+    position: fixed;
+    bottom: 20px;
+    right:20px;
+    width: 40px;
+    height:40px;
+    border:none;
+    background-color: #ff523b;
+    outline: none;
+    display:none;
+    cursor: pointer;
+    animation: up 1s linear;
+    transition: scrollTop 0.5s;
+    will-change: scroll-position;
+    
+}
+@keyframes up{
+    from{
+        right: -30px;
+        opacity: 0;
+    }
+    to{
+        right:20px;
+        opacity: 1;
+    }
+}
+#btn_up:hover{
+    background-color: #563434;
+    
+}
+#btn_up i{
+    color:#fff;
+}
+
+
+/* ---------chat------------------- */
+.chat{
+    position: fixed;
+    right:20px;
+    bottom: 100px;
+    height:40px;
+    cursor: pointer;
+    width: 80%;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 0;
+}
+#logo_chat{
+    width:40px;
+    height:100%;
+    background-size:cover;
+    object-fit: cover;
+    animation-name: chat;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    transition : transform 0.5s linear, max-height 0.5s linear;
+}
+#chat_mes{
+    max-width: 300px;
+    width:100%;
+    position: absolute;
+    right:0px;
+    bottom:0px;
+    background:#fff;
+    border:1px solid #eee;
+    box-shadow: 1px 1px 3px #eee;
+    display:block;
+    animation-name: chat;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    transition : transform 0.5s linear, max-height 0.5s linear;
+    will-change: opacity, transform;
+    transform-origin: 100% bottom;
+    z-index:0;
+}
+@keyframes chat{
+    from{
+        right:-100px;
+        bottom:0px;
+        opacity: 0;
+        transform: scale(0);
+    }
+    to{
+        right:0px;
+        bottom: 0px;
+        opacity: 1;
+        transform: scale(1);
+    }
+    
+}
+#chat_mes .top{
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:10px 20px;
+    background:#ff523b;
+    color:#fff;
+    height:50px;
+}
+.chat_word{
+    padding:10px 20px;
+    height: 300px;
+}
+.chat_word p{
+    height:80%;
+    color:#555;
+    
+}
+.chat_word p span{
+    position: absolute;
+    padding:5px;
+    border:1px solid #555;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+.chat_word input{
+    border-radius: 20px;
+    padding:0px 30px 0px 10px;
+}
+#chat_mes i{
+    position: absolute;
+    right: 35px;
+    bottom: 33px;
+    color:#ff523b;
+}
+#chat_mes .fa-times{
+    position: absolute;
+    right: 22px;
+    top: 18px;
+    color: white;
+}
+ 
+/* --------------------about--------------- */
+
+.about{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1080px;
+    margin: auto;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.about h2{
+    text-align: left;
+    margin-bottom:20px;
+    position: relative;
+}
+.about h2::after{
+    content: '';
+    position: absolute;
+    width:0px;
+    height:4px;
+    background:#ff523b;
+    left:0;
+    top:100%;
+    transform: translateY(-50%);
+    animation: about 2.5s linear infinite alternate;
+    /* transition: width 0.5s, opacity 0.5s; */
+}
+
+@keyframes about{
+    from{
+        width:0px;
+        opacity: 0;
+    }
+    to{
+        width:100%;
+        opacity: 1;
+    }
+}
+
+/* ----------contact_us-------------- */
+.contact_us{
+    display: block;
+    margin:auto;
+    max-width: 1080px;
+    padding: 20px;
+}
+.contact{
+    display: flex;
+    flex-wrap: wrap;
+    padding:20px 0px;
+    box-shadow: 0px 0px 20px rgb(206, 188, 188);
+    
+}
+.contact_infor{
+    flex-basis: 50%;
+    padding: 0px 30px 30px 30px;
+}
+.contact_infor h2{
+    font-size: 50px;
+}
+.contact_infor p{
+    color: #ff523b;
+    margin-top: 10px;
+}
+.infor{
+    margin-top:40px;
+}
+.infor > span{
+    display: block;
+    margin-bottom:20px;
+}
+.logo_infor{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.logo_infor img{
+    width:45px;
+    height:45px;
+    padding:5px;
+} 
+.btn_coppy{
+    flex-basis: 50%;
+    font-size:16px;
+    border:none;
+    outline:none;
+    padding:10px 25px;
+    border-radius: 30px;
+    background-color: #ff523b;
+    color: #fff;
+    box-shadow: 0px 0px 10px #ff523b;
+}
+
+iframe{
+    flex-basis: 50%;
+    padding:20px;
+}
+
+/* --------close_menu------------ */
+#close_menu{
+    display:none;
 }
 
 
@@ -463,20 +747,96 @@ form a{
         background:#333;
         overflow: hidden;
         transition: max-height 0.5s;
+        z-index: 10;
+        overflow: hidden;
+        transition: max-height 0.5s linear;
+        /* padding-top:50px; */
+        /* position: fixed;
+        top:0px;
+        right:0px;
+        width:100%;
+        height: 100vh;
+        background:rgba(0,0,0,0.9);
+        overflow: hidden;
+        transition: max-width 0.5s linear;
+        padding-top:50px;
+        z-index: 10; */
+       
     }
     nav ul li{
         display: block;
         margin-right:50px;
         margin-top:10px;
         margin-bottom:10px;
+        /* position: relative;
+        left:50%;
+        transform: translateX(-50%);
+        padding: 20px 0px;
+        text-align: center;
+        margin-right: 0px; */
+        
     }
     nav ul li a{
         color:#fff;
     }
+    /* #close_menu{
+        display: block;
+        position: absolute;
+        z-index: 10;
+        right:50px;
+        font-size: 20px;
+        color:#fff;
+        animation:close 0.5s linear;
+        transition: opacity 0.5s, right 0.5s ;
+        cursor: pointer;
+    }
+    @keyframes close {
+        from{
+            opacity: 0;
+            right:0px;
+        }
+        to{
+            opacity: 1;
+            right: 50px;
+        }
+    } */
     .menu-icon{
         display: block;
         cursor: pointer;
         margin-left: 10px;
+    }
+    .contact_infor h2{
+        font-size:40px;
+    }
+    .logo_infor{
+        margin-top: 40px;
+    }
+    .btn_coppy{
+        flex-basis: 100%;
+    }
+    .img_infor{
+        flex-basis: 100%;
+        margin-top:20px;
+        text-align: center;
+    }
+}
+@media only screen and (max-width:750px){
+    .contact_us{
+        max-width:650px;
+    }
+    .contact_infor, .logo_infor{
+        flex-basis: 100%;
+        text-align: left;
+        padding: 0px 50px;
+    }
+    .contact_infor{
+        padding:20px 50px;
+    }
+    .contact_infor h2, .contact_slogan{
+        text-align: center;
+    }
+    iframe{
+        flex-basis: 100%;
     }
 }
 @media only screen and (max-width:600px){
@@ -499,5 +859,16 @@ form a{
     }
     .cart-infor p{
         display: none;
+    }
+}
+@media only screen and (max-width: 440px){
+    .contact_infor h2{
+        font-size:25px;
+    }
+    .logo_infor {
+        flex-basis: 100%;
+        padding:0px;
+       
+       
     }
 }

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/scrollreveal"></script>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,8 +23,8 @@
                     <ul id="MenuItems">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="products.html">Products</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                         <li><a href="account.html">Account</a></li>
                     </ul>
                 </nav>
@@ -39,29 +40,29 @@
                     <a href="index.html"><img src="./images/image1.png" width="100%"></a>
                 </div>
                 <div class="col-2">
-                    <div class="form-container">
-                        <div class="form-btn">
-                            <span onclick="login()">Login</span>
-                            <span onclick="register()">Register</span>
-                            <hr id="Indicator">
+                        <div class="form-container">
+                            <div class="form-btn">
+                                <span onclick="login()">Login</span>
+                                <span onclick="register()">Register</span>
+                                <hr id="Indicator">
+                            </div>
+    
+                            <form id="LoginForm">
+                                <input type="text" placeholder="Username" >
+                                <input type="password" placeholder="Password" >
+                                <button type="submit" class="btn">Login</button>
+                                <a href="">Forgot password</a>
+                            </form>
+    
+                            <form id="RegForm">
+                                <input type="text" placeholder="Username" >
+                                <input type="email" placeholder="Email" >
+                                <input type="password" placeholder="password" >
+                                <button type="submit" class="btn">Login</button>
+                                <a href="">Forgot password</a>
+                            </form>
                         </div>
-
-                        <form id="LoginForm">
-                            <input type="text" placeholder="Username">
-                            <input type="password" placeholder="Password">
-                            <button type="submit" class="btn">Login</button>
-                            <a href="">Forgot password</a>
-                        </form>
-
-                        <form id="RegForm">
-                            <input type="text" placeholder="Username">
-                            <input type="email" placeholder="Email">
-                            <input type="password" placeholder="password">
-                            <button type="submit" class="btn">Login</button>
-                            <a href="">Forgot password</a>
-                        </form>
                     </div>
-                </div>
             </div>
         </div>
     </div>
@@ -75,7 +76,7 @@
       LoginForm.style.transform ="translateX(0px)";
     //   LoginForm.style.display = "none";
     //   RegForm.style.display = "block";
-      Indicator.style.transform = "translateX(100px)";
+      Indicator.style.transform = "translateX(150px)";
     }
 
     function login() {
@@ -83,7 +84,7 @@
     //   RegForm.style.display = "none";
     //   LoginForm.style.display = "block";
       LoginForm.style.transform = "translateX(300px)";
-      Indicator.style.transform = "translateX(0px)";
+      Indicator.style.transform = "translateX(50px)";
     }
     </script>
     <!-- ------------footer----------------- -->
@@ -94,12 +95,12 @@
                     <h3>Download Our App</h3>
                     <p>Download App for Android and iOs Mobile phone</p>
                     <div class="app-logo">
-                        <img src="./images/play-store.png" alt="">
-                        <img src="./images/app-store.png" alt="">
+                        <a href="#"><img src="./images/play-store.png" alt=""></a>
+                        <a href="#"><img src="./images/app-store.png" alt=""></a>
                     </div>
                 </div>
                 <div class="footer-col-2">
-                    <img src="./images/logo-white.png" alt="">
+                    <a href="index.html"><img src="./images/logo-white.png" alt=""></a>
                     <p>Our Purpose Is to Sustainably Make the Pleasure and Benefits of Sports Accessible to the Many.</p>
                 </div>
                 <div class="footer-col-3">
@@ -114,18 +115,40 @@
                 <div class="footer-col-4">
                     <h3>Follow Us</h3>
                    <ul>
-                       <li>Facebook</li>
-                       <li>Twitter</li>
-                       <li>Instagram</li>
-                       <li>Youtube</li>
+                       <li><a href="https://www.facebook.com/dinhtri.1062001/">Facebook</a></li>
+                       <li><a href="">Twitter</a></li>
+                       <li><a href="https://www.instagram.com/dinhtri.1062001/">Instagram</a></li>
+                       <li><a href="https://www.youtube.com/channel/UCQCk6QonWARMMwxqJcZT8uQ">Youtube</a></li>
                    </ul>
                 </div>
             </div>
             <hr>
             <p class="copyright">Copyright 2021 - Pham Dinh Tri</p>
         </div>
+        <button type="button" id="btn_up" onclick="upToggle()">
+            <i class="fas fa-arrow-up"></i>
+        </button>
     </div>
     
     <script src="js.js"></script>
+    <script>
+        var btn =document.getElementById('btn_up');
+         window.onscroll = function(){
+       if(document.body.scrollTop > 150 || document.documentElement.scrollTop > 150){
+         btn.style.display = "block";
+       }else{
+         btn.style.display = "none";
+       }
+     } 
+     function upToggle(){
+       document.body.scrollTop = 0;
+       document.documentElement.scrollTop = 0;
+     }
+
+     //----------------login---------------
+    
+     
+   </script>
+   <script src="Scroll.js"></script>
 </body>
 </html>
